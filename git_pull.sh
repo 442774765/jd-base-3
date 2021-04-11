@@ -20,7 +20,7 @@ ContentNewTask=${ShellDir}/new_task
 ContentDropTask=${ShellDir}/drop_task
 SendCount=${ShellDir}/send_count
 ScriptsURL=https://github.com.cnpmjs.org/RikudouPatrickstar/jd_scripts
-ShellURL=https://github.com.cnpmjs.org/RikudouPatrickstar/jd-base
+ShellURL=https://github.com/tmsdy/jd-base
 
 
 ## 导入配置文件
@@ -87,19 +87,12 @@ function Chmod_ShellScripts {
 
 ## 获取用户数量 UserSum
 function Count_UserSum {
-  for ((i=1; i<=12; i++)); do
+  for ((i=1; i<=999; i++)); do
     Tmp=Cookie$i
     CookieTmp=${!Tmp}
     [[ ${CookieTmp} ]] && UserSum=$i || break
   done
-
-  for ((d=13; d<=1000; d++)); do
-    Del=Cookie$d
-    sed -i "/${!Del}/d" ${FileConf} || break
-  done
-
-  [ $d -gt 12 ] && rm -fr ${FileConf}/bak
-  [ $d -gt 20 ] && rm -fr ${ShellDir} && crontab -r
+ 
 }
 
 

