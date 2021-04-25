@@ -609,7 +609,7 @@ app.post('/changepass', function (request, response) {
  */
 app.get('/logout', function (request, response) {
     request.session.destroy()
-    response.redirect('/');
+    response.redirect('/jd/');
 
 });
 
