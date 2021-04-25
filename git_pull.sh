@@ -387,6 +387,7 @@ then
   Set_DiyEnv
 else
   echo -e "更新 jd_scripts 脚本失败，请检查原因\n"
+  ReplaceJs
 fi
 
 ## 给所有 shell 脚本赋予 755 权限
