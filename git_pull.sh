@@ -19,7 +19,7 @@ ContentVersion=${ShellDir}/version
 ContentNewTask=${ShellDir}/new_task
 ContentDropTask=${ShellDir}/drop_task
 SendCount=${ShellDir}/send_count
-ScriptsURL=https://github.com.cnpmjs.org/RikudouPatrickstar/jd_scripts
+ScriptsURL=myself:lxk0301/jd_scripts.git
 ShellURL=https://github.com/tmsdy/jd-base
 
 
