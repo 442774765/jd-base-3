@@ -330,7 +330,7 @@ app.get('/changepwd', function (request, response) {
     if (request.session.loggedin) {
         response.sendFile(path.join(__dirname + '/public/pwd.html'));
     } else {
-        response.redirect('/');
+        response.redirect(defaultrootPath);
     }
 });
 
@@ -426,7 +426,7 @@ app.get('/home', function (request, response) {
     if (request.session.loggedin) {
         response.sendFile(path.join(__dirname + '/public/home.html'));
     } else {
-        response.redirect('/');
+        response.redirect(defaultrootPath);
     }
 
 });
@@ -438,7 +438,7 @@ app.get('/diff', function (request, response) {
     if (request.session.loggedin) {
         response.sendFile(path.join(__dirname + '/public/diff.html'));
     } else {
-        response.redirect('/');
+        response.redirect(defaultrootPath);
     }
 
 });
@@ -450,7 +450,7 @@ app.get('/shareCode', function (request, response) {
     if (request.session.loggedin) {
         response.sendFile(path.join(__dirname + '/public/shareCode.html'));
     } else {
-        response.redirect('/');
+        response.redirect(defaultrootPath);
     }
 
 });
@@ -462,7 +462,7 @@ app.get('/crontab', function (request, response) {
     if (request.session.loggedin) {
         response.sendFile(path.join(__dirname + '/public/crontab.html'));
     } else {
-        response.redirect('/');
+        response.redirect(defaultrootPath);
     }
 
 });
@@ -474,7 +474,7 @@ app.get('/diy', function (request, response) {
     if (request.session.loggedin) {
         response.sendFile(path.join(__dirname + '/public/diy.html'));
     } else {
-        response.redirect('/');
+        response.redirect(defaultrootPath);
     }
 
 });
@@ -486,7 +486,7 @@ app.get('/run', function (request, response) {
     if (request.session.loggedin) {
         response.sendFile(path.join(__dirname + '/public/run.html'));
     } else {
-        response.redirect('/');
+        response.redirect(defaultrootPath);
     }
 });
 
@@ -524,7 +524,7 @@ app.post('/runCmd', function(request, response) {
             }, delay);
         });
     } else {
-        response.redirect('/');
+        response.redirect(defaultrootPath);
     }
 });
 
