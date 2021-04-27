@@ -35,6 +35,7 @@ var logPath = path.join(rootPath, 'log/');
 // 脚本目录
 var ScriptsPath = path.join(rootPath, 'scripts/');
 
+var defaultrootPath = '/jd/';
 var authError = "错误的用户名密码，请重试";
 var loginFaild = "请先登录!";
 
@@ -609,7 +610,7 @@ app.post('/changepass', function (request, response) {
  */
 app.get('/logout', function (request, response) {
     request.session.destroy()
-    response.redirect('/jd/');
+    response.redirect(defaultrootPath);
 
 });
 
@@ -636,7 +637,7 @@ app.get('/log', function (request, response) {
     if (request.session.loggedin) {
         response.sendFile(path.join(__dirname + '/public/tasklog.html'));
     } else {
-        response.redirect('/');
+        response.redirect(defaultrootPath);
     }
 });
 
@@ -672,7 +673,7 @@ app.get('/api/logs', function (request, response) {
         response.send(result);
 
     } else {
-        response.redirect('/');
+        response.redirect(defaultrootPath);
     }
 
 });
@@ -692,7 +693,7 @@ app.get('/api/logs/:dir/:file', function (request, response) {
         response.setHeader("Content-Type", "text/plain");
         response.send(content);
     } else {
-        response.redirect('/');
+        response.redirect(defaultrootPath);
     }
 
 });
@@ -705,7 +706,7 @@ app.get('/viewScripts', function (request, response) {
     if (request.session.loggedin) {
         response.sendFile(path.join(__dirname + '/public/viewScripts.html'));
     } else {
-        response.redirect('/');
+        response.redirect(defaultrootPath);
     }
 });
 
@@ -751,7 +752,7 @@ app.get('/api/scripts', function (request, response) {
         response.send(result);
 
     } else {
-        response.redirect('/');
+        response.redirect(defaultrootPath);
     }
 
 });
@@ -771,7 +772,7 @@ app.get('/api/scripts/:dir/:file', function (request, response) {
         response.setHeader("Content-Type", "text/plain");
         response.send(content);
     } else {
-        response.redirect('/');
+        response.redirect(defaultrootPath);
     }
 
 });
