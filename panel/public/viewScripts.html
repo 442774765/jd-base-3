@@ -27,8 +27,8 @@
                         <li><a href="./crontab">定时设定</a></li>
                         <li><a href="./diff">对比工具</a></li>
                         <li><a href="./run">手动执行</a></li>
-                        <li class="active"><a href="./log">日志查询</a></li>
-                    <li><a href="./viewScripts">查看脚本</a></li>
+                        <li><a href="./log">日志查询</a></li>
+							<li class="active"><a href="./viewScripts">查看脚本</a></li>
                         <li><a href="./changepwd">修改密码</a></li>
                         <li><a href="./logout">退出</a></li>
                     </ul>
@@ -83,7 +83,7 @@
                 theme: 'dracula'
             });
             
-            $.get('./api/logs', function (data) {
+            $.get('./api/scripts', function (data) {
                 var dirs = data.dirs;
                 var navHtml = "";
                 for (let index in dirs) {
@@ -121,7 +121,7 @@
                     dispatch(document.getElementById('toggleIcon'), 'click');
                 }
 
-                $.get(`./api/logs/${dir}/${file}`, function (data) {
+                $.get(`./api/scripts/${dir}/${file}`, function (data) {
                     editor.setValue(data);
                 });
             }
