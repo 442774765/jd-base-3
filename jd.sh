@@ -229,6 +229,9 @@ function Reset_Pwd {
 ## 运行京东脚本
 function Run_Normal {
   case $# in
+    1)
+      Import_Conf $1
+      ;;
     2)
       Import_Conf $1
       ;;
