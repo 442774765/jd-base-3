@@ -45,7 +45,7 @@
                 <br/>
                 <form class="run-cmd-form" action="runCmd" method="POST">
                     <div class="cmd-section">
-                        bash jd.sh <input id="jdScript" name="jdScript" type="text" placeholder="请输入脚本名称" required> now
+                        bash jd.sh <input id="jdScript" name="jdScript" type="text" placeholder="请输入脚本名称" required> now <input id="userid" name="userid" type="text" placeholder="用户序号" required>
                     </div>
                     <input type="submit" id="runCmd">
                 </form>
@@ -83,8 +83,10 @@
                         cmd = 'bash jd.sh';
                         break;
                     case 'jd_get_share_code':
+					
+                     const userid = $('#userid').val();
                         confirmTxt = '确认获取互助码？';
-                        cmd = `bash jd.sh ${this.id} now`;
+                        cmd = `bash jd.sh ${this.id} now ${userid}`;
                         break;
                     default:
                         break;
@@ -173,6 +175,7 @@
 
             $('#runCmd').click(function() {
                 const jdScript = $('#jdScript').val();
+                const userid = $('#userid').val();
                 if (!jdScript) {
                     Swal.fire({
                         text: '请先补充命令。',
@@ -190,7 +193,7 @@
                 }
                 editor.setValue('');
 
-                const cmd = `bash jd.sh ${jdScript} now`;
+                const cmd = `bash jd.sh ${jdScript} now ${userid}`;
                 $.post('./runCmd', {cmd: cmd, delay: 1000}, function (data) {
                     editor.setValue(data.msg);
 
