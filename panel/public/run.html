@@ -42,6 +42,8 @@
                 <button id="rm_log" class="cmd-btn" title="删除旧日志">删除旧日志</button>
                 <button id="hangup" title="重启挂机程序">重启挂机程序</button>
                 <button id="ps" title="查看进程">查看进程</button>
+                <button id="start_proxy" title="开启隧道">开启隧道</button>
+                <button id="stop_proxy" title="关闭隧道">关闭隧道</button>
                 <br/>
                 <form class="run-cmd-form" action="runCmd" method="POST">
                     <div class="cmd-section">
@@ -126,7 +128,7 @@
                 }, 1000);
             });
 
-            $('#hangup, #export_sharecodes, #git_pull, #ps').click(function() {
+            $('#hangup, #export_sharecodes, #git_pull, #ps,#start_proxy, #stop_proxy').click(function() {
                 let confirmTxt, cmd;
                 switch (this.id) {
                     case 'git_pull':
@@ -140,6 +142,14 @@
                     case 'ps':
                         // confirmTxt = '确认查看进程？';
                         cmd = `${this.id} | grep node | grep -v grep`;
+                        break;
+                    case 'start_proxy':
+                        // confirmTxt = '确认查看进程？';
+                        cmd = `systemctl start squid`;
+                        break;
+                    case 'stop_proxy':
+                        // confirmTxt = '确认查看进程？';
+                        cmd = `systemctl stop squid`;
                         break;
                     case 'hangup':
                         confirmTxt = '确认重启挂机程序？';
