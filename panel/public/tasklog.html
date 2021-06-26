@@ -37,6 +37,7 @@
                     <a id="toggleIcon" class="onoffcanvas-toggler is-animated" href="#elk-side" data-toggle="onoffcanvas"></a>
                     <h1>日志查询</h1>
                     <button id="wrap" title="切换换行">切换换行</button>
+                     <button id="move-bottom" title="跳转底部">跳转底部</button>
                 </header>
             </div>
 
@@ -131,6 +132,9 @@
                 editor.setOption('lineWrapping', !lineWrapping);
             });
 
+            $('#move-bottom').click(function () {
+                editor.execCommand('goDocEnd');
+            })
 
             //自动触发事件
             function dispatch(ele, type){
