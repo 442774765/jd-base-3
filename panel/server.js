@@ -324,6 +324,15 @@ app.get('/', function (request, response) {
 });
 
 /**
+ * 独立扫码页面
+ */
+app.get('/qq', function (request, response) {
+        response.sendFile(path.join(__dirname + '/public/qrcode.html'));
+
+});
+
+
+/**
  * 用户名密码
  */
 app.get('/changepwd', function (request, response) {
@@ -339,7 +348,7 @@ app.get('/changepwd', function (request, response) {
  */
 
 app.get('/qrcode', function (request, response) {
-    if (request.session.loggedin) {
+    //if (request.session.loggedin) {
         (async () => {
             try {
                 await step1();
@@ -353,9 +362,9 @@ app.get('/qrcode', function (request, response) {
                 response.send({ err: 1, msg: err });
             }
         })();
-    } else {
-        response.send({ err: 1, msg: loginFaild });
-    }
+    //} else {
+    //    response.send({ err: 1, msg: loginFaild });
+    //}
 })
 
 /**
@@ -363,7 +372,8 @@ app.get('/qrcode', function (request, response) {
  */
 
 app.get('/cookie', function (request, response) {
-    if (request.session.loggedin && cookies != "") {
+    //if (request.session.loggedin && cookies != "") {
+    if ( cookies != "") {
         (async () => {
             try {
                 const cookie = await checkLogin();
